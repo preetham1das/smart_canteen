@@ -10,6 +10,7 @@ const nextConfig = {
     ],
   },
   serverExternalPackages: ["mongoose", "mongodb-memory-server"],
+  trailingSlash: true,
 };
 
 export default nextConfig;

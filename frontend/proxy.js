@@ -23,6 +23,7 @@ export default withAuth(proxy, {
     authorized: ({ token, req }) => {
       const { pathname } = req.nextUrl;
       if (
+        pathname === "/" ||
         pathname.startsWith("/login") ||
         pathname.startsWith("/register") ||
         pathname.startsWith("/display") ||
