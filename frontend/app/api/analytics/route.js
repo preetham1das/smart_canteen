@@ -32,7 +32,7 @@ export async function GET() {
     });
     const peakHours = Object.entries(hourMap)
       .map(([h, count]) => ({
-        hour: `${h.padStart(2, '0')}:00`,
+        hour: `${String(h).padStart(2, '0')}:00`,
         hourNum: parseInt(h),
         count
       }))

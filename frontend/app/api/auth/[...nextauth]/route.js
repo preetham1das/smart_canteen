@@ -60,8 +60,8 @@ const authOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id       = user.id;
-        token.username = user.username;
         token.role     = user.role;
+        token.rewardPoints = user.rewardPoints ?? 0;
       }
       return token;
     },
@@ -70,6 +70,7 @@ const authOptions = {
         session.user.id       = token.id;
         session.user.username = token.username;
         session.user.role     = token.role;
+        session.user.rewardPoints = token.rewardPoints;
       }
       return session;
     },

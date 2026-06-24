@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(request, { params }) {
   await connectDB();
-  const { id } = params;
+  const { id } = await params;
 
   try {
     const body = await request.json();
@@ -18,7 +18,7 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
   await connectDB();
-  const { id } = params;
+  const { id } = await params;
 
   try {
     await MenuItem.findByIdAndDelete(id);
