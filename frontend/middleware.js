@@ -1,7 +1,7 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
-async function proxy(req) {
+async function middleware(req) {
   const { pathname } = req.nextUrl;
   const role = req.nextauth?.token?.role;
 
@@ -18,7 +18,7 @@ async function proxy(req) {
   return NextResponse.next();
 }
 
-export default withAuth(proxy, {
+export default withAuth(middleware, {
   callbacks: {
     authorized: ({ token, req }) => {
       const { pathname } = req.nextUrl;
